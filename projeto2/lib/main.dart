@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:projeto2/Home.dart';
+import 'package:projeto2/Tela2.dart';
+import 'package:projeto2/Tela3.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,9 +32,9 @@ class _MyWidgetState extends State<NavBar> {
     });
   }
   List<Widget>screens = [
-    telaHome(),
-    tela2(),
-    tela3()
+    TelaHome(),
+    Tela2(),
+    Tela3()
   ]; ///lista que contem todas as telas
 
   @override
@@ -39,7 +42,13 @@ class _MyWidgetState extends State<NavBar> {
     return MaterialApp(//prove os componentes para a sua tela, você precisa dele para ter um titulo, container
     home: Scaffold(
       body: screens.elementAt(currentIndex),//o conteudo sera a tela que esta no index atual
-      bottomNavigationBar: BottomNavigationBar(items: <BottomNavigationBarItem>
+      bottomNavigationBar: BottomNavigationBar(items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(label: "Tela 1", icon:Icon(Icons.account_circle)),
+        BottomNavigationBarItem(label: "Tela 2", icon:Icon(Icons.account_circle)),
+        BottomNavigationBarItem(label: "Tela 3", icon:Icon(Icons.account_circle)),
+      ],
+      currentIndex: currentIndex, //a posicao desejada
+      onTap: changeIndex, //funcai que muda o index
       ),
     ),
     );
